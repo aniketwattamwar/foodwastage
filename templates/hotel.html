@@ -23,19 +23,25 @@
   </div>
 </nav>
     
-    
+ 
   <div class="container">
  <h1> Hotel Management Dashboard </h1>
 <div class="row">
   <div class="col-sm-4">  
-  <div class="card" style="width: 18rem;">
-  <img class="img-fluid" src="..." alt="Card image cap">
-  <div class="card-body">
-    <h5 class="card-title">Burger King</h5>
-    <p class="card-text">Available Food - 10lb</p>
-    <a href="#" class="btn btn-primary">Location</a>
+  {%for data in food_data%}
+  {{data}}
+    <div class="card" style="width: 18rem;">
+    <img class="img-fluid" src="..." alt="Card image cap">
+    <div class="card-body">
+    
+      <h5 class="card-title">{{data.1}}</h5>
+      <p class="card-text">Available Food - {{data.4}} lb</p>
+      <a href="#" class="btn btn-primary">{{data.2}}</a>
+    </div>
   </div>
-</div>
+    
+{%endfor%}
+
 </div>
 </div>
   </body>
