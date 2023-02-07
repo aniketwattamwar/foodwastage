@@ -4,9 +4,8 @@ import pymongo
 from pymongo import MongoClient
 
 app = Flask(__name__)
-# app.config['MONGO_URI'] = 'mongodb+srv://aniket:CollegPlace107@cluster0.8opd5.mongodb.net/?retryWrites=true&w=majority'
 
-client = pymongo.MongoClient("mongodb+srv://aniket:CollegePlace107@cluster0.8opd5.mongodb.net/?retryWrites=true&w=majority")
+
 # db = client.test
 
 # mongo = PyMongo(app)
