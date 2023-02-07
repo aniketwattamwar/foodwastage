@@ -17,32 +17,79 @@
     </div>
     <ul class="nav navbar-nav">
       <li class="active"><a href="#">Home</a></li>
-      <li><a href="#">Submit</a></li>
-      <li><a href="#">History</a></li>
-    </ul>
-  </div>
-</nav>
-    
+      <li><a href="#" data-toggle="modal" data-target="#myModal">Add</a></li>
+     
  
-  <div class="container">
- <h1> Hotel Management Dashboard </h1>
-<div class="row">
-  <div class="col-sm-4">  
-  {%for data in food_data%}
-  {{data}}
-    <div class="card" style="width: 18rem;">
-    <img class="img-fluid" src="..." alt="Card image cap">
-    <div class="card-body">
-    
-      <h5 class="card-title">{{data.1}}</h5>
-      <p class="card-text">Available Food - {{data.4}} lb</p>
-      <a href="#" class="btn btn-primary">{{data.2}}</a>
+  <!-- Button to Open the Modal -->
+ 
+
+  <!-- The Modal -->
+  <div class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Add Available Food</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+         Fill the below details 
+         <form action="/add_food" method="post" enctype="multipart/form-data">
+     
+       <div class="form-outline mb-4">
+        <label class="form-label" for="form2Example1">Name</label>
+         <input type="text" id="form2Example1" class="form-control" name="name" />
+        
+       </div>
+
+     
+       <div class="form-outline mb-4">
+          <label class="form-label" for="form2Example2">Amount in lbs</label>
+         <input type="text" id="form2Example2" class="form-control" name = "amt"/>
+      
+       </div>
+       
+        <div class="form-outline mb-4">
+           <label class="form-label" for="form2Example2">Type</label>
+          <input type="text" id="form2Example2" class="form-control" name = "type"/>
+       
+        </div>
+ 
+       <hr>
+       <!-- Submit button -->
+       <button type="submit" class="btn btn-primary btn-block mb-4">Add</button>
+
+     </form>
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+        
+       
     </div>
   </div>
     
-{%endfor%}
+    </ul>
+  </div>
+</nav>
 
-</div>
-</div>
+<!-- Dyanmic data -->
+
+    <h3> Hotel Management Dashboard</h3>
+
+    {{food_data}}
+    {%for f in food_data%}
+       <p>  {{f.name}} </p>
+    {%endfor%}
+    
+
+
+
+
   </body>
 </html>

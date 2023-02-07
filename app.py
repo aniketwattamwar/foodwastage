@@ -16,7 +16,7 @@ collection = db["userdata"]
 add_user_collection = db["new_users"]
 
 food = client["food"]
-food_data = db["food_data"]
+food_collection = db["food_data"]
 @app.route("/")
 def index():
     
@@ -34,8 +34,8 @@ def hotel():
             print(i)
             if i['password'] == entered_password:
                 
-                
-                return render_template("hotel.html")
+                food_data = food_collection.find({})
+                return render_template("hotel.html",food_data = food_data)
     return render_template("home.html",msg = msg)
             
 @app.route('/register',methods=['post'])
