@@ -5,6 +5,7 @@ from pymongo import MongoClient
 
 app = Flask(__name__)
 
+client = pymongo.MongoClient("mongodb+srv://aniket:CollegePlace107@cluster0.8opd5.mongodb.net/?retryWrites=true&w=majority")
 
 # db = client.test
 
@@ -25,6 +26,7 @@ def index():
 @app.route('/hotel',methods=['post'])
 def hotel():
     msg = "Wrong email or password"
+    ans = []
     if request.method == "POST":
         email = request.form['email']
         entered_password = request.form['password']
@@ -34,7 +36,8 @@ def hotel():
             print(i)
             if i['password'] == entered_password:
                 
-                food_data = food_collection.find({})
+                food_data = list(food_collection.find())
+
                 return render_template("hotel.html",food_data = food_data)
     return render_template("home.html",msg = msg)
             
